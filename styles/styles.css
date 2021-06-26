@@ -1,0 +1,25 @@
+#game {
+    background-image: url("../images/background-fulltime.jpg");
+    background-repeat: no-repeat;
+    height: 700px;
+    width: 500px;
+    position: fixed;
+    top: 70px;
+    right: 300px;
+}
+
+#intro {
+    position: flex;
+    width: 500px;
+    float: left;
+    padding: 0% 10%;
+}
+
+#rodape {
+    position: fixed;
+    bottom: 0px;
+}
+
+body {
+    background-color: #FFFFFF;
+}
