@@ -88,6 +88,7 @@ window.onload = () => {
             console.log("collision")
             cancelAnimationFrame(animatedId)
             clearInterval(obsCreator)
+            
         }
     }
 
