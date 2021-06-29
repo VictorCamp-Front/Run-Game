@@ -63,22 +63,22 @@ window.onload = () => {
 
             if (score <= 15) {
                 let color = 'darkblue'
-                let obs = new Obstacle(Math.random() * canvas.width, 100, 400, 30, color)
+                let obs = new Obstacle(Math.random() * canvas.width, 0, 150, 40, color)
 
                 obstacles.push(obs)
             } else if (score >= 16) {
                 let color = 'white'
-                let obs = new Obstacle(Math.random() * canvas.width, 0, 200, 30, color)
+                let obs = new Obstacle(Math.random() * canvas.width, 0, 170, 40, color)
 
                 obstacles.push(obs)
             } else if (score >= 35) {
                 let color = 'red'
-                let obs = new Obstacle(Math.random() * canvas.width, 100, 400, 30, color)
+                let obs = new Obstacle(Math.random() * canvas.width, 000, 200, 40, color)
                 obstacles.push(obs)
             }
 
 
-        }, 2800) //determina a frequencia de obstaculos
+        }, 1500) //determina a frequencia de obstaculos
 
     function detectCollision(rect1, rect2) {
         if (rect1.x < rect2.x + rect2.w &&
@@ -87,7 +87,10 @@ window.onload = () => {
             rect1.y + rect1.h > rect2.y) {
             console.log("collision")
             cancelAnimationFrame(animatedId)
-            clearInterval(obsCreator)
+            clearInterval(obsCreator)                  
+            document.getElementById('gameOverSound').play();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
             
         }
     }
