@@ -122,6 +122,24 @@ window.onload = () => {
         }
     }
     let animatedId = null;
+    function win(){
+        cancelAnimationFrame(animatedId)
+            ctx.clearRect(0, 0, canvas.width, canvas.height);    
+            let win = new Image()
+            win.src = './images/ganhou.jpg'
+            ctx.drawImage(win, 0, 0, canvas.width, canvas.height);   
+            document.getElementById('startGameSound').pause();
+            document.getElementById('applause').play();
+            
+                     
+            ctx.fillStyle = 'red';
+            ctx.font = '30px Arial'
+            //ctx.fillText('VOCE CONSEGUIU FUGIR!!', 70, 300)
+            ctx.fillStyle = 'black'
+            ctx.font = '40px Arial'
+            ctx.fillText(`Your final score ${score}`, 100, 600)
+            clearRect(obsCreator)
+    }
 
     function startGame() {
         document.getElementById('startGameSound').play();
@@ -153,21 +171,7 @@ window.onload = () => {
         drawScore()
         if(score==2){
 
-            cancelAnimationFrame(animatedId)
-    
-            document.getElementById('startGameSound').pause();
-            document.getElementById('applause').play();
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            let win = new Image()
-            win.src = './images/ganhou.jpg'
-            ctx.drawImage(win, 0, 0, canvas.width, canvas.height);            
-            ctx.fillStyle = 'red';
-            ctx.font = '30px Arial'
-            ctx.fillText('VOCE CONSEGUIU FUGIR!!', 70, 300)
-            ctx.fillStyle = 'red'
-            ctx.font = '40px Arial'
-            //ctx.fillText(`Your final score ${score}`, 100, 350,)
-            clearRect(obsCreator)
+            win();
         }
     
     }
