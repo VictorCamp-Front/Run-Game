@@ -77,7 +77,7 @@ window.onload = () => {
         }
 
 
-    }, 1500) //determina a frequencia de obstaculos
+    }, 2000) //determina a frequencia de obstaculos
 
     function detectCollision(rect1, rect2) {
         if (rect1.x < rect2.x + rect2.w &&
@@ -100,6 +100,11 @@ window.onload = () => {
             ctx.fillText(`Your final score ${score}`, 100, 350,)
             clearRect(obsCreator)
 
+            document.getElementById('start-button').onclick = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                startGame();
+            };
+
         }
     }
 
@@ -109,9 +114,9 @@ window.onload = () => {
         ctx.fillStyle = "black";
         ctx.fillText("Score: " + score, 100, 100);
     }
-    
+
     let car = new Image()
-    car.src = "./images/personagem.jpg"
+    car.src = "./images/personagem.png"
     var player = new Car(car, 225, 550, car.width, car.height)
     window.onkeydown = function (e) {
         if (e.key === 'ArrowLeft') {
@@ -122,23 +127,29 @@ window.onload = () => {
         }
     }
     let animatedId = null;
-    function win(){
+    function win() {
+
         cancelAnimationFrame(animatedId)
-            ctx.clearRect(0, 0, canvas.width, canvas.height);    
-            let win = new Image()
-            win.src = './images/ganhou.jpg'
-            ctx.drawImage(win, 0, 0, canvas.width, canvas.height);   
-            document.getElementById('startGameSound').pause();
-            document.getElementById('applause').play();
-            
-                     
-            ctx.fillStyle = 'red';
-            ctx.font = '30px Arial'
-            //ctx.fillText('VOCE CONSEGUIU FUGIR!!', 70, 300)
-            ctx.fillStyle = 'black'
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+        document.getElementById('startGameSound').pause();
+        document.getElementById('applause').play();
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'yellow';
+            ctx.fillRect(0, 0, 500, 700);
+            ctx.fillStyle = 'black';
             ctx.font = '40px Arial'
-            ctx.fillText(`Your final score ${score}`, 100, 600)
+            ctx.fillText('CONSEGUIU ESCAPAR!', 40, 300)
+            ctx.fillStyle = 'red'
+            ctx.font = '40px Arial'
+            ctx.fillText(`Sua pontuação final é ${score}`, 40, 450,)
             clearRect(obsCreator)
+
+            document.getElementById('start-button').onclick = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                startGame();
+            };
     }
 
     function startGame() {
@@ -147,7 +158,7 @@ window.onload = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         if (score <= 15) {
             let road = new Image()
-            road.src = './images/corredor.jpg'
+            road.src = './images/corredor.png'
             ctx.drawImage(road, 0, 0, canvas.width, canvas.height);
             player.draw()
         } else if (score >= 16) {
@@ -169,10 +180,10 @@ window.onload = () => {
             }
         }
         drawScore()
-        if(score==2){
+        if (score ==50 ) {
 
             win();
         }
-    
+
     }
 };
