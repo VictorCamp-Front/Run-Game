@@ -101,10 +101,10 @@ window.onload = () => {
             ctx.fillText(`Your final score ${score}`, 100, 350,)
             clearRect(obsCreator)
 
-            document.getElementById('start-button').onclick = () => {
+            setInterval(() => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 startGame();
-            };
+            }, 2000);
 
         }
     }
