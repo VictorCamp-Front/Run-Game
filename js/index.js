@@ -180,7 +180,7 @@ window.onload = () => {
             }
         }
         drawScore()
-        if (score ==50 ) {
+        if (score ==20 ) {
 
             win();
         }
