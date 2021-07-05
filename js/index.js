@@ -62,7 +62,7 @@ window.onload = () => {
 
         if (score <= 15) {
             let color = 'darkblue'
-            let obs = new Obstacle(Math.random() * canvas.width, 0, 150, 40, color)
+            let obs = new Obstacle(Math.random() * canvas.width, 10, 150, 40, color)
 
             obstacles.push(obs)
         } else if (score >= 16) {
