@@ -1,4 +1,5 @@
 window.onload = () => {
+
     document.getElementById('start-button').onclick = () => {
         startGame();
     };
@@ -145,11 +146,12 @@ window.onload = () => {
             ctx.font = '40px Arial'
             ctx.fillText(`Sua pontuação final é ${score}`, 40, 450,)
             clearRect(obsCreator)
-
-            document.getElementById('start-button').onclick = () => {
+            setInterval(() => {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 startGame();
-            };
+            }, 2000);
+
+            
     }
 
     function startGame() {
